@@ -1,0 +1,44 @@
+---
+layout: default
+---
+<link rel="stylesheet" href="/css/style2022.css">
+{% assign translate = site.data.translations | where_exp:"item", "item.lang == page.lang"%}
+<section class="film-free-way">
+    <button class="film-free-way__button"><a href="{{ site.filmfreeway_url }}" target="_blank">FilmFreeWay</a></button>
+</section>
+
+<section class="support-us section-container support_us_hksf_postponed">
+    <div class="section-inner-container">
+        <h2 class="section-container__title_hksf_postponed">
+            {{translate | map: "hksf_postponed"}}
+        </h2>
+    </div>
+</section>
+
+<section class="about">
+    <section class="description section-container">
+        <div class="section-inner-container">
+            <h2 class="section-container__title">
+                {{translate | map: "about_hksf"}}:
+                <span class="title-arrow"><img src="/images/common/title-arrow.svg" alt="title arrow"></span>
+            </h2>
+            <div class="section-container__content">
+                <p class="hksf-postponed-description">
+                    {{translate | map: "hksf_postponed_description_1"}}
+                 </p>
+                <p class="hksf-postponed-description">
+                    {{translate | map: "hksf_postponed_description_2"}}
+                </p>
+                <p class="hksf-postponed-description">
+                    {{translate | map: "hksf_postponed_description_3"}}
+                </p>
+                <p class="hksf-postponed-description">
+                    {{translate | map: "hksf_postponed_description_4"}}
+                </p>
+                <p class="hksf-postponed-description">
+                    {{translate | map: "hksf_postponed_description_5"}}
+                </p>
+            </div>
+        </div>
+    </section>
+</section>

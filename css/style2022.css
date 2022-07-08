@@ -1,0 +1,23 @@
+.section-container__title_hksf_postponed {
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    word-break: break-word;
+
+    margin-bottom: 20px;
+}
+@media screen and (min-width: 992px) {
+    .section-container__title_hksf_postponed {
+        font-size: 80px;
+    }
+}
+.support-us .section-container__title_hksf_postponed {
+    color: #fff;
+    margin-bottom: 45px;
+}
+.hksf-postponed-description {
+    margin-bottom: 30px;
+}
+.support-us.support_us_hksf_postponed {
+    padding-bottom: 0;
+}

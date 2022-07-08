@@ -1,0 +1,20 @@
+email: info@hksf.online
+instagram_url: https://www.instagram.com/hksf_kyiv_short_fest/
+facebook_url: https://www.facebook.com/HKSFKyivShortFest/
+current_year: 2022
+
+filmfreeway_url: https://filmfreeway.com/hksf
+privatbank_url: \#Privat
+monobank_url: \#Mono
+patreon_url: \#Patreon
+
+## partners
+gudu_url: https://gudu.ua/
+tcp_url: https://www.instagram.com/tcp.bar/
+aristocrats_url: https://aristocrats.fm/
+videolife_url: https://videolife.biz/
+
+collections:
+  archive:
+    output: true
+

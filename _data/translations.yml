@@ -1,0 +1,127 @@
+- lang: ua
+  main_page: ГОЛОВНА
+  about_festival: ПРО ФЕСТИВАЛЬ
+  archive_page: АРХІВ
+  main_partners: ГОЛОВНІ ПАРТНЕРИ
+  support_us: ПІДТРИМАЙ НАС
+  support_us_privat: Приват
+  support_us_mono: Моно
+  support_us_patreon: Патреон
+  about_hksf: ПРО HKSF
+  about_hksf_description: <span class="bold">Here Kyiv Short Fest</span> - міжнародний і незалежний фестиваль короткометражних фільмів. Три дні візуального задоволення наприкінці літа. На нашому фестивалі представлені короткі фільми про гедонізм та будь-яке людське задоволення. Here Kyiv Short Fest не встановлює жодних обмежень, ти сам обираєш сферу щастя. Розкажи нам про те, що тебе підносить, про все, що допомагає досягти задоволення. Непотрібно визначатися за жанром. Просто обери категорію, яка відповідає тривалості твого гедоністичного короткометражного фільму, і ми його підхопимо.
+  hksf_categories: КАТЕГОРІЇ HKSF
+  category:
+    all-films:
+      name: Всі
+    extra-short:
+      name: Extra Short
+      timing: (до 2 хв.)
+      prize: 50$
+    short:
+      name: Short
+      timing: (до 5 хв.)
+      prize: 50$
+    long-short:
+      name: Long Short
+      timing: (до 10 хв.)
+      prize: 100$
+    music-video:
+      name: Music video
+      timing: (до 10 хв.)
+      prize: 50$
+    fashion-film:
+      name: Fashion film
+      timing: (до 10 хв.)
+      prize: 50$
+  hksf_categories_description_1: Організатори HKSF відбирають фільми для показу в рамках фестивалю та формують програму. Однак жюрі – це наші глядачі, які голосують за вподобані фільми.
+  hksf_categories_description_2: Фільм, який набирає найбільше голосів, отримує премію глядацьких симпатій HKSF і символічний приз.
+  festival_schedule: РОЗКЛАД ПРОВЕДЕННЯ HKSF
+  schedule:
+    stage-1:
+      title: Відкриття реєстрації.
+      description: 1 червня 2023 р.
+    stage-2:
+      title: Закриття основної реєстрації.
+      description: 30 червня 2023 р.
+    stage-3:
+      title: Фільми, відібрані для фестивалю.
+      description: 25 серпня 2023 р.
+    stage-4:
+      title: Фільми, відібрані для HKSF, доступні на веб-сайті фестивалю для публічного перегляду та голосування.
+      description: 29 - 31 серпня 2023 р.
+    stage-5:
+      title: Фільм - переможець премії глядацьких симпатій HKSF оголошено на веб-сайті фестивалю.
+      description: 1 вересня 2023 р.
+  film_category: Категорія
+  film_director: Режисер
+  film_country: Країна
+  hksf_postponed: HKSF 2022 ВІДКЛАДЕНИЙ ДО НАЙЛІПШИХ ГЕДОНІСТИЧНИХ ЧАСІВ, ЧЕРЕЗ ВІЙНУ РОСІЇ В УКРАЇНІ.
+  hksf_postponed_description_1: <span class="bold">Here Kyiv Short Fest</span> - міжнародний і незалежний фестиваль короткометражних фільмів присвячений темі гедонізма та будь-якому прояву насолоди. росія в одну мить позбавила нас теплих почуттів.
+  hksf_postponed_description_2: 24 лютого 2022 року росія підступно, в ночі почала бомбити усі куточки красивої України, та забрала в українців плани на майбутнє, мрії та наші найтепліші вечорниці з кіно, віном, красенями та красунями.
+  hksf_postponed_description_3: Нажаль зараз наша команда нічого не може планувати, багато друзів та членів фестивалю стали волонтерами, дехто з них пішов на фронт. Ми робимо усе щоб допомогти Україні перемогти скаженого монстра.
+  hksf_postponed_description_4: Сьогодні, усіх наших учасників та глядачів закликаємо про одне,  підтримувати Україну де б ви не знаходились.
+  hksf_postponed_description_5: До зустрічі як найшвидше, у центрі найкрутішої столиці. Бережіть себе та своїх близьких. <br/><br/> Обіймає команда HKSF!
+
+- lang: en
+  main_page: MAIN PAGE
+  about_festival: ABOUT FESTIVAL
+  archive_page: ARCHIVE
+  main_partners: MAIN PARTNERS
+  support_us: SUPPORT US
+  support_us_privat: Privat
+  support_us_mono: Mono
+  support_us_patreon: Patreon
+  about_hksf: ABOUT HKSF
+  about_hksf_description: <span class="bold">Here Kyiv Short Fest</span> is an international and independent short film festival. Three days of visual delight at the end of summer. Our festival presents short films featuring hedonism and any kind of human pleasure. Here Kyiv Short Fest doesn't set any limits, it is you who chooses a sphere of happiness yourself. Tell us about everything that excites you, that makes your dopamine go up. We don't ask filmmakers to define their short films by genres. Just submit your work to a category that matches the timing of your hedonistic short film, and we will take it from there.
+  hksf_categories: HKSF CATEGORIES
+  category:
+    all-films:
+      name: All
+    extra-short:
+      name: Extra Short
+      timing: (< 2 min.)
+      prize: 50$
+    short:
+      name: Short
+      timing: (< 5 min.)
+      prize: 50$
+    long-short:
+      name: Long Short
+      timing: (< 10 min.)
+      prize: 100$
+    music-video:
+      name: Music video
+      timing: (< 10 min.)
+      prize: 50$
+    fashion-film:
+      name: Fashion film
+      timing: (< 10 min.)
+      prize: 50$
+  hksf_categories_description_1: The HKSF organizers select several films for the show within the festival and form the program. However, our main jury are the spectators who vote for the films they liked.
+  hksf_categories_description_2: The film, which gets the most votes, wins the HKSF Audience Award - the symbolic prize.
+  festival_schedule: HKSF TIMELINE
+  schedule:
+    stage-1:
+      title: Registration is open.
+      description: June 1, 2023.
+    stage-2:
+      title: Registration is closed.
+      description: June 30, 2023.
+    stage-3:
+      title: Films, selected for the festival, are announced on the HKSF website.
+      description: August 25, 2023.
+    stage-4:
+      title: Films, selected for the HKSF, are available on the website of the festival for public viewing and voting.
+      description: August 29 – 31, 2023.
+    stage-5:
+      title: Film - winner of HKSF Audience Award is announced on the website of the festival.
+      description: September 1, 2023.
+  film_category: Category
+  film_director: Director
+  film_country: Country
+  hksf_postponed: HKSF 2022 POSTPONED TO THE BEST OF HEDONISTIC TIMES DUE TO RUSSIA'S WAR IN UKRAINE.
+  hksf_postponed_description_1: <span class="bold">Here Kyiv Short Fest</span> is an international and independent short films festival dedicated to hedonism and any form of pleasure. In one moment, russia deprived us of all warm feelings.
+  hksf_postponed_description_2: On February 24, 2022, at night, russia insidiously began bombing every corner of our wonderful Ukraine, taking away Ukrainians' plans for the future, dreams and our warmest evenings with movies, wine, and beautiful people.
+  hksf_postponed_description_3: Unfortunately, our team cannot plan anything now, many friends and team members have become volunteers, some have left for the army. We are doing everything to help Ukraine defeat the crazy monster.
+  hksf_postponed_description_4: Today, we call on all our participants and viewers for one thing, to support Ukraine wherever you are.
+  hksf_postponed_description_5: See you as soon as possible, in the center of the coolest capital. Take care of yourself and your loved ones. <br/> <br/> Hugs from the HKSF team!
