@@ -1,0 +1,152 @@
+---
+layout: default
+---
+{% assign translate = site.data.translations | where_exp:"item", "item.lang == page.lang"%}
+<section class="film-free-way">
+    <button class="film-free-way__button"><a href="{{ site.filmfreeway_url }}" target="_blank">FilmFreeWay</a></button>
+</section>
+
+<section class="support-us section-container">
+    <div class="section-inner-container">
+        <h2 class="section-container__title">
+            {{translate | map: "support_us"}}
+        </h2>
+        <div class="section-container__content">
+            <div class="support-us__content--mob">
+                <ul class="support-us__list">
+                    <li class="support-us__item">
+                        <p class="support-us__item-title">
+                            {{translate | map: "support_us_privat"}}
+                        </p>
+                        <a href="{{ site.privatbank_url }}"><img class="support-us__item-image" src="/images/support-us/logo-patreon.svg" alt="logo" /></a>
+                    </li>
+                    <li class="support-us__item">
+                        <p class="support-us__item-title">
+                            {{translate | map: "support_us_mono"}}
+                        </p>
+                        <a href="{{ site.monobank_url }}"><img class="support-us__item-image" src="/images/support-us/logo-patreon.svg" alt="logo" /></a>
+                    </li>
+                    <li class="support-us__item">
+                        <p class="support-us__item-title">
+                            {{translate | map: "support_us_patreon"}}
+                        </p>
+                        <a href="{{ site.patreon_url }}"><img class="support-us__item-image" src="/images/support-us/logo-patreon.svg" alt="logo" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <section class="description section-container">
+        <div class="section-inner-container">
+            <h2 class="section-container__title">
+                {{translate | map: "about_hksf"}}:
+                <span class="title-arrow"><img src="/images/common/title-arrow.svg" alt="title arrow"></span>
+            </h2>
+            <div class="section-container__content">
+                <p class="about__content">
+                    {{translate | map: "about_hksf_description"}}
+                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories section-container">
+        <div class="section-inner-container">
+            <h2 class="section-container__title">
+                {{translate | map: "hksf_categories"}}:
+                <span class="title-arrow"><img src="/images/common/title-arrow.svg" alt="title arrow"></span></h2>
+            <div class="section-container__content">
+                <div class="categories-wrapper">
+                    {% assign category = translate | map: "category"%}
+                    <ul class="categories-duration">
+                        <li class="categories-duration__item">
+                            <p class="categories-duration__title">{{category | map: "extra-short" | map: "name"}}</p>
+                            <p class="categories-duration__description">{{category | map: "extra-short" | map: "timing"}}</p>
+                        </li>
+                        <li class="categories-duration__item">
+                            <p class="categories-duration__title">{{category | map: "short" | map: "name"}}</p>
+                            <p class="categories-duration__description">{{category | map: "short" | map: "timing"}}</p>
+                        </li>
+                        <li class="categories-duration__item">
+                            <p class="categories-duration__title">{{category | map: "long-short" | map: "name"}}</p>
+                            <p class="categories-duration__description">{{category | map: "long-short" | map: "timing"}}</p>
+                        </li>
+                        <li class="categories-duration__item">
+                            <p class="categories-duration__title">{{category | map: "music-video" | map: "name"}}</p>
+                            <p class="categories-duration__description">{{category | map: "music-video" | map: "timing"}}</p>
+                        </li>
+                        <li class="categories-duration__item">
+                            <p class="categories-duration__title">{{category | map: "fashion-film" | map: "name"}}</p>
+                            <p class="categories-duration__description">{{category | map: "fashion-film" | map: "timing"}}</p>
+                        </li>
+                        <li class="categories-duration__item"></li>
+                    </ul>
+
+                    <p class="categories-description">
+                        {{translate | map: "hksf_categories_description_1"}}
+                    </p>
+                    <p class="categories-description">
+                        {{translate | map: "hksf_categories_description_2"}}
+                    </p>
+
+                    <ul class="categories-pricing">
+                        <li class="categories-pricing__item">
+                            <p class="categories-pricing__title">{{category | map: "extra-short" | map: "name"}}</p>
+                            <p class="categories-pricing__description">{{category | map: "extra-short" | map: "prize"}}</p>
+                        </li>
+                        <li class="categories-pricing__item">
+                            <p class="categories-pricing__title">{{category | map: "short" | map: "name"}}</p>
+                            <p class="categories-pricing__description">{{category | map: "short" | map: "prize"}}</p>
+                        </li>
+                        <li class="categories-pricing__item">
+                            <p class="categories-pricing__title">{{category | map: "long-short" | map: "name"}}</p>
+                            <p class="categories-pricing__description">{{category | map: "long-short" | map: "prize"}}</p>
+                        </li>
+                        <li class="categories-pricing__item">
+                            <p class="categories-pricing__title">{{category | map: "music-video" | map: "name"}}</p>
+                            <p class="categories-pricing__description">{{category | map: "music-video" | map: "prize"}}</p>
+                        </li>
+                        <li class="categories-pricing__item">
+                            <p class="categories-pricing__title">{{category | map: "fashion-film" | map: "name"}}</p>
+                            <p class="categories-pricing__description">{{category | map: "fashion-film" | map: "prize"}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="schedule section-container">
+        <div class="section-inner-container">
+            <h2 class="section-container__title">
+                {{translate | map: "festival_schedule"}}:
+                <span class="title-arrow"><img src="/images/common/title-arrow.svg" alt="title arrow"></span></h2>
+            <div class="section-container__content">
+                {% assign schedule = translate | map: "schedule"%}
+                <div class="schedule__item">
+                    <p class="schedule__title">{{schedule | map: "stage-1" | map: "title"}}</p>
+                    <p class="schedule__description">{{schedule | map: "stage-1" | map: "description"}}</p>
+                </div>
+                <div class="schedule__item">
+                    <p class="schedule__title">{{schedule | map: "stage-2" | map: "title"}}</p>
+                    <p class="schedule__description">{{schedule | map: "stage-2" | map: "description"}}</p>
+                </div>
+                <div class="schedule__item">
+                    <p class="schedule__title">{{schedule | map: "stage-3" | map: "title"}}</p>
+                    <p class="schedule__description">{{schedule | map: "stage-3" | map: "description"}}</p>
+                </div>
+                <div class="schedule__item">
+                    <p class="schedule__title">{{schedule | map: "stage-4" | map: "title"}}</p>
+                    <p class="schedule__description">{{schedule | map: "stage-4" | map: "description"}}</p>
+                </div>
+                <div class="schedule__item">
+                    <p class="schedule__title">{{schedule | map: "stage-5" | map: "title"}}</p>
+                    <p class="schedule__description">{{schedule | map: "stage-5" | map: "description"}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

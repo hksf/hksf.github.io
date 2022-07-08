@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{page.title}}</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+{% assign translate = site.data.translations | where_exp:"item", "item.lang == page.lang"%}
+<header class="header">
+    <div class="header-content">
+        <div class="header-icon">
+            <a href="/{{page.lang}}/"><img src="/images/header/logo.svg" alt="logo" /></a>
+        </div>
+
+        <div class="header-menu header-menu--mobile">
+            <div id="menuToggle">
+                <input id="menuToggleCheckbox" type="checkbox">
+
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+
+                <ul id="menu">
+                    <li>
+                        <a class="menu__item" href="/{{page.lang}}/">
+                            {{translate | map: "main_page"}}
+                        </a>
+                    </li>
+<!--                    <li>-->
+<!--                        <a class="menu__item" href="#">-->
+<!--                            {{translate | map: "about_festival"}}-->
+<!--                        </a>-->
+<!--                    </li>-->
+                    <li class="item-with-submenu">
+                        <div class="submenu__title">
+                            <input id="archiveToggleCheckbox" type="checkbox">
+                            <span class="menu__item">
+                                {{translate | map: "archive_page"}}
+                            </span>
+                            <img class="menu__item-arrow" src="/images/header/arrow.svg" alt="arrow" />
+
+                            <ul class="submenu__content">
+                                {% for year in site.data.archive %}
+                                    <li><a class="submenu__item" href="/{{page.lang}}/archive/{{ year.year }}/">{{ year.year }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-wrapper">
+                            <a class="menu__item {% if page.lang == 'en' %} language--active {% endif %}"
+                               href="{{page.url | replace_first: '/ua/', '/en/'}}">EN</a>
+                            <a class="menu__item {% if page.lang == 'ua' %} language--active {% endif %}"
+                               href="{{page.url | replace_first: '/en/', '/ua/'}}">UA</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-menu header-menu--desktop">
+            <ul class="desktop-menu">
+                <li class="item-wrapper {% if page.url == '/' or page.url == '/ua/' or page.url == '/en/' %} active {% endif %}">
+                    <a class="desktop-menu__item" href="/{{page.lang}}/">
+                        {{translate | map: "main_page"}}
+                    </a>
+                </li>
+<!--                <li class="item-wrapper">-->
+<!--                    <a class="desktop-menu__item" href="#">-->
+<!--                        {{translate | map: "about_festival"}}-->
+<!--                    </a>-->
+<!--                </li>-->
+                <li class="item-wrapper {% if page.url contains 'archive' %} active {% endif %} desktop-item-with-submenu">
+                    <div class="desktop-submenu__title">
+                        <input id="desktopArchiveToggleCheckbox" type="checkbox">
+                        <span class="desktop-menu__item">
+                            {{translate | map: "archive_page"}}
+                        </span>
+
+                        {% if page.url contains 'archive' %}
+                            <img class="desktop-menu__item-arrow" src="/images/header/arrow-red.svg" alt="arrow" />
+                        {% else %}
+                            <img class="desktop-menu__item-arrow" src="/images/header/arrow.svg" alt="arrow" />
+                        {% endif %}
+                        <ul class="desktop-submenu__content">
+                            {% for year in site.data.archive %}
+                                <li><a class="desktop-submenu__item" href="/{{page.lang}}/archive/{{ year.year }}/">{{ year.year }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+                <li class="item-wrapper"><a class="item-btn" href="{{ site.filmfreeway_url }}" target="_blank">FilmFreeWay</a></li>
+                <li class="item-wrapper">
+                    <div class="language-wrapper">
+                        <a class="desktop-menu__item {% if page.lang == 'en' %} language--active {% endif %}"
+                           href="{{page.url | replace_first: '/ua/', '/en/'}}">EN</a>
+                        <a class="desktop-menu__item {% if page.lang == 'ua' %} language--active {% endif %}"
+                           href="{{page.url | replace_first: '/en/', '/ua/'}}">UA</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+    {{content}}
+
+<section class="partners section-container">
+    <div class="section-inner-container">
+        <h2 class="partners__title">
+            {{translate | map: "main_partners"}}
+        </h2>
+        <ul class="partners__list">
+            <li class="partners__item"><a href="{{site.gudu_url}}" target="_blank"><img src="/images/partners/gudu.svg" alt="gudu"></a></li>
+            <li class="partners__item"><a href="{{site.tcp_url}}" target="_blank"><img src="/images/partners/tcp.svg" alt="tcp"></a></li>
+            <li class="partners__item"><a href="{{site.aristocrats_url}}" target="_blank"><img src="/images/partners/ari.svg" alt="aristokrati"></a></li>
+            <li class="partners__item"><a href="{{site.videolife_url}}" target="_blank"><img src="/images/partners/vl.svg" alt="video life"></a></li>
+        </ul>
+    </div>
+</section>
+<footer class="footer section-container">
+    <div class="section-inner-container">
+        <div class="footer__content">
+            <div class="main-icon">
+                <div class="main-icon__wrapper">
+                    <a href="/{{page.lang}}/"><img src="/images/footer/logo.svg" alt="logo" /></a>
+                </div>
+            </div>
+            <div class="socials">
+                <div class="socials__item socials__fb"><a href="{{site.facebook_url}}" target="_blank"><img src="/images/footer/fb.svg" alt="fb"></a></div>
+                <div class="socials__item socials__inst"><a href="{{site.instagram_url}}" target="_blank"><img src="/images/footer/inst.svg" alt="inst"></a></div>
+                <div class="socials__item socials__email"><a href="mailto:{{site.email}}">{{site.email}}</a></div>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="/{{page.lang}}/" class="link">
+                            {{translate | map: "main_page"}}
+                        </a>
+                    </li>
+<!--                    <li class="navigation__item">-->
+<!--                        <a href="#" class="link">-->
+<!--                            {{translate | map: "about_festival"}}-->
+<!--                        </a>-->
+<!--                    </li>-->
+                    <li class="navigation__item navigation__item--with-child">
+                        <a href="/{{page.lang}}/archive/" class="link">
+                            {{translate | map: "archive_page"}}
+                        </a>
+                        <ul class="navigation__sublist">
+                            {% for year in site.data.archive %}
+                            <li class="navigation__subitem"><a href="/{{page.lang}}/archive/{{ year.year }}/">{{ year.year }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="footer__static">
+            <div class="authors">
+                <p class="authors__item">Web design by Anna Kozachenko</p>
+                <p class="authors__item">Identity and illustrations by Polina Olkhovnikova</p>
+            </div>
+
+            <p class="rights">©{{site.current_year}}   HKSF / All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+</body>
+<!-- https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap -->
+<style>
+    /* cyrillic-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0370-03FF;
+    }
+    /* hebrew */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+    }
+    /* vietnamese */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0370-03FF;
+    }
+    /* hebrew */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+    }
+    /* vietnamese */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    /* cyrillic-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSKmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+    }
+    /* cyrillic */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSumu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+    }
+    /* greek-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSOmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+1F00-1FFF;
+    }
+    /* greek */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSymu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0370-03FF;
+    }
+    /* hebrew */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS2mu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+    }
+    /* vietnamese */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSCmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+    }
+    /* latin-ext */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTSGmu0SC55K5gw.woff2) format('woff2');
+        unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-stretch: 100%;
+        font-display: swap;
+        src: url(https://fonts.gstatic.com/s/opensans/v29/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-mu0SC55I.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+</style>
+</html>

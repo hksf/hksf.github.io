@@ -1,0 +1,89 @@
+---
+layout: default
+---
+{% assign translate = site.data.translations | where_exp:"item", "item.lang == page.lang"%}
+<section class="tabs section-container">
+  <div class="section-inner-container">
+    {% assign category = translate | map: "category"%}
+    <h2 class="tabs__title">{{translate | map: "archive_page"}} {{ page.year }} <span class="title-arrow">
+      <img src="/images/common/title-arrow.svg" alt="title arrow">
+    </span>
+    </h2>
+    <ul class="tabs__list">
+      <li class="tabs__item {% if page.category == 'all' %} active {% endif %}">
+        <a href="/{{page.lang}}/archive/{{ page.year }}/">{{category | map: "all-films" | map: "name"}}</a>
+      </li>
+      <li class="tabs__item {% if page.category == 'extra-short' %} active {% endif %}">
+        <a href="/{{page.lang}}/archive/{{ page.year }}/extra-short">{{category | map: "extra-short" | map: "name"}}</a>
+      </li>
+      <li class="tabs__item {% if page.category == 'short' %} active {% endif %}">
+        <a href="/{{page.lang}}/archive/{{ page.year }}/short">{{category | map: "short" | map: "name"}}</a>
+      </li>
+      <li class="tabs__item {% if page.category == 'long-short' %} active {% endif %}">
+        <a href="/{{page.lang}}/archive/{{ page.year }}/long-short">{{category | map: "long-short" | map: "name"}}</a>
+      </li>
+      {% if page.year > 2020 %}
+        <li class="tabs__item {% if page.category == 'music-video' %} active {% endif %}">
+          <a href="/{{page.lang}}/archive/{{ page.year }}/music-video">{{category | map: "music-video" | map: "name"}}</a>
+        </li>
+      {% endif %}
+    </ul>
+
+    <ul class="film__list">
+
+      {% for film in site.archive %}
+        {% if film.submission_year == page.year and film.lang == page.lang %}
+          {% if film.category == page.category or page.category == 'all' %}
+            <li class="film-item__container">
+              <a class="film-item__link kek" href="/{{ film.permalink }}">
+                <div class="film-item__background">
+                  <img src="/{{ film.image_folder }}/poster.jpg" alt="special film image" />
+                </div>
+
+                <div class="film__item winner">
+                  <div class="film-item__content-wrapper">
+                    <div class="film-item__content">
+                      <p class="film-item__title">{{ film.title }}</p>
+
+                      <ul class="film-item__description-list">
+                        <li class="description-list__item">
+                          <p class="item__title">{{translate | map: "film_category"}}</p>
+                          <p class="item__description">{{ category | map: film.category | map: "name" }}</p>
+                        </li>
+                        <li class="description-list__item">
+                          <p class="item__title">{{translate | map: "film_director"}}</p>
+                          <p class="item__description">{{ film.director }}</p>
+                        </li>
+                        <li class="description-list__item">
+                          <p class="item__title">{{translate | map: "film_country"}}</p>
+                          <p class="item__description">{{ film.country }}</p>
+                        </li>
+                      </ul>
+                    </div>
+                    {% if film.is_winner %}
+                      <div class="film-item__icon">
+                        <img src="/images/films/winner-icon.svg" alt="winner icon" />
+                      </div>
+                    {% endif %}
+                  </div>
+
+                  <p class="film-item__description">
+                    {% if film.description_short %}
+                      {{ film.description_short }}
+                    {% else %}
+                      {{ film.description }}
+                    {% endif %}
+                  </p>
+                </div>
+              </a>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      <!-- 2 empty items need to be here-->
+      <li class="film-item__container empty"></li>
+      <li class="film-item__container empty"></li>
+    </ul>
+  </div>
+</section>
